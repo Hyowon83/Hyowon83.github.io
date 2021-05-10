@@ -1,4 +1,7 @@
 #### 20210510(월) 작업내역
+- Git에서 'user.name' 및 'user.email' 설정오류 안내
+    - git config --local user.name 이름
+    - git config --local user.email 이메일
 - 업로드절차 : 1. 커밋(commit) 2. 푸시(push)
 - 다운로드절차 : 1. 풀(pull) (상황: 교실에서 작업한 결과를 집에서 이어서 작업 할 때)
 - 레포지토리(저장소) 초기화 : git init

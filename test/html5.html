@@ -17,39 +17,40 @@
             }
             
     </style>
-</head>
-<body>
     <!-- HTML5레이아웃 구조에 사용된 태그
          : header, nav, section, article, aside, footer -->
-    <style>
-        /* css : cascade style sheet(계층형 스타일 표) */
-        header, nav, section, aside, footer{
-            border:1px dotted black;
-        }
-        header>h1, footer>h1 {text-align: center;}
-        nav{display:block; height: 60px;}
-        nav>ul>li{
-            float:left; margin-right: 20px;
-        }
-        div.contents{
-            /* 내부의 컨텐츠 기준되는 외부 요소에 관계형 포지션을 추가한다. */
-            position: relative;
-            overflow: hidden;
+         <style>
+            /* css : cascade style sheet(계층형 스타일 표) */
+            header, nav, section, aside, footer{
+                border:1px dotted black;
             }
-        section{
-            width: 79%; display: inline-block;
+            header>h1, footer>h1 {text-align: center;}
+            nav{display:block; height: 60px;}
+            nav>ul>li{
+                float:left; margin-right: 20px;
             }
-            section>article{ 
-                margin: 10px 30px;
-                border: 1px solid skyblue; 
+            div.contents{
+                /* 내부의 컨텐츠 기준되는 외부 요소에 관계형 포지션을 추가한다. */
+                position: relative;
+                overflow: hidden;
                 }
-        aside{
-            width: 20%; display: inline-block;
-            height: 100%;
-            right: 0px;
-            position: absolute;
-            }
-    </style>
+            section{
+                width: 79%; display: inline-block;
+                }
+                section>article{ 
+                    margin: 10px 30px;
+                    border: 1px solid skyblue; 
+                    }
+            aside{
+                width: 20%; display: inline-block;
+                height: 100%;
+                right: 0px;
+                position: absolute;
+                }
+        </style>
+</head>
+<body>
+    
     <header>
         <h1>Header</h1>
     </header>

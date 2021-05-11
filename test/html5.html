@@ -13,8 +13,53 @@
     </style>
 </head>
 <body>
-    <!-- #### 07 유튜브 영상 -->
-    <iframe width="100%" height="464" src="https://www.youtube.com/embed/uL6PjAj4q74" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <!-- #### 09 테이블 태그 제어 : 셀 병합 -->
+    <!-- table, tr(table row |줄), td(table data |칸) -->
+    <table>
+        <tr>
+            <td>순번</td>
+            <td>책이름</td>
+            <td>가격</td>
+            <td>판매량</td>
+            <td>판매액</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>HTML</td>
+            <td>7,000</td>
+            <td>1,000</td>
+            <td>7,000,000</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>JS</td>
+            <td>7,000</td>
+            <td>1,000</td>
+            <td>7,000,000</td>
+        </tr>
+    </table>
+    <!-- #### 08 HTML5 폼 태그 사용 엘리먼트:form태그,input태그 -->
+    <!-- 액션=자료전송(메소드:방법), radio(file)=이름이 같아도 됨, submit -->
+    <form action="https://naver.com" method="GET">
+        <input type="text" name="text" id="">
+        <input type="password" name="password" id="">
+        <input type="date" name="date" id="">
+        <input type="color" name="color" id="">
+        <input type="radio" name="radio" id="">
+        <input type="radio" name="radio" id="">
+        <!-- radio : 2개 이상 중 1개만 선택 가능, name이 같음 -->
+        <input type="checkbox" name="checkbox1" id="">
+        <input type="checkbox" name="checkbox2" id="">
+        <!-- checkbox : 2개 이상 중 여러개 선택 가능, name이 다름 -->
+        <input type="file" name="file" id="">
+        <input type="file" name="file" id="">
+        <textarea name="textarea" id="" cols="30" rows="10"></textarea>
+        <input type="button" value="버튼">
+        <input type="reset" value="입력취소">
+        <input type="submit" value="서밋(전송)">
+    </form>
+    <!-- #### 07 유튜브 영상 집어넣기 -->
+    <iframe width="100%" height="464" src="https://www.youtube.com/embed/9O57o0DCX1A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <!-- #### 06 컨텐츠 경로 .은 현재폴더의 상대경로, 절대경로 -->
     <img style="width: 100%;" src="./img/light.jpg" alt="엑박일 때 표시할 내용이 여기에">
     <img style="width: 100%;" src="/test/img/light.jpg" alt="엑박일 때 표시할 내용이 여기에">

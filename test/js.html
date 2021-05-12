@@ -14,6 +14,22 @@
         }
         th{width: 25%;}
     </style>
+    <!-- 제이쿼리 코어 임포트 불러오기 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+         // jQuery로 개발자가 프로그램을 간편하게 만들기
+        // jQuery CDN : Contents Delivery Network 인터넷으로 외부 프로그램을 갖다가 사용.(인터넷이 안되는 경우엔 쓸 수 없음.)
+        // jQuery의 기본형식 : $로 시작, 문서가 준비되었을때 자동구현.
+        // 인터프리터의 단점 : 위->아래로 실행되는 순서를 신경쓰지 않아도 됨. = jQuery의 장점.
+        // $('id선택자').click(콜백함수(){구현내용});
+        $(document).ready(function(){
+            //아래의 html문서를 다 읽은 후에 {블럭}내용이 실행된다.
+            $('#checkvalue').click(function () {
+                alert($('#name').val());
+                $('#one').css('background-color','red');
+            });
+        });
+    </script>
 </head>
 <body>
     <table id="board">
@@ -26,8 +42,214 @@
         </tr>
     </table>
     <div id="one">헬로 자바스크립트</div>
+    <p class="two">헬로 자바스크립트2</p>
+    <input type="text" name="name" id="name" value="테스트">
+    <!-- 입력값을 전송하는 버튼 -->
+    <button onclick="checkValue('💕💕')">입력값 확인</button>
+    <button id='ckeckvalue'>jQuery 입력값 확인</button>
+    <br>
     <script>
-        // 연산자 : 비교 >, >=, <, <=, ==, === (>=,<=순서 중요)
+       
+        // 여러개의 element 선택
+        // var names = document.getElementById('name');
+        var names = $('#name');
+        var inputName = document.getElementsByName('name');
+        var twoClassName = document.getElementsByClassName('two');
+        // 네이밍 방식 : 카멜(낙타등)표기법. 단어와 단어를 합칠 때, 소문자로 시작해서 단어가 분리 될 때 대문자로 시작.
+        console.log(twoClassName);
+        document.write('클래스엘리먼트 내용 : ', twoClassName[0]['innerHTML']);
+        function checkValue(params) {
+            // alert(params + '버튼 클릭 되었습니다.');
+            alert(names.val() + '입력한 값입니다.');
+            // document.getElementById('one').style.backgroundColor = 'red';
+            $('#one').css('background-color','red');
+        }
+        console.log(names);
+        document.write('<br>');
+        // 변수의 영역(scope)
+        // function스코프의 변수 예약어 : var, blockscope의 변수 예약어 :  let, const
+        var i = 10;
+        var i2 = 0;
+        if (i>5) {
+            let i2 = 100;
+        } else {
+            let i2 = 200; //let변수는 {블럭}영역 안쪽에서만 효력이 있음.
+        }
+        function test(params) {
+            var i2 = 200; //var 사용하면 변수 재정의. 재정의된 변수는 밖으로 나갈 수 없음.
+        }
+        test(1);
+        document.write(i2);
+        document.write('<hr>');
+        var arrays = [10, 20, 30, 40, 50];
+        // 반복문2 : while문(for문 보다 덜 사용, 잘못하면 무한반복 되기 때문)
+        // while문을 사용하는 경우 : IoT에서 많이 사용. 온도센서 값 입력 할 때. (무한반복이 필요한 경우)
+        var i = 0;
+        while (i < arrays.length) {
+            document.write(arrays[i]);
+            document.write('<br>');
+            i = i + 1; //i++
+        }
+        document.write('<hr>');
+        // 반복문1 : for문 ~하는 동안 반복해라.
+        // for문 형식 : for(시작값; 종료값; 증가값) {}
+        for(var i=0; i<arrays.length; i++) { //오름차순
+            document.write(arrays[i]);
+            document.write('<br>');
+        }
+        document.write("위의 함수를 반대로 출력 :");
+        document.write('<br>');
+        for(var i=(arrays.length-1); i>=0; i--) { //내림차순
+            document.write(arrays[i]);
+            document.write('<br>');
+        }
+        // 조건문 : 비교
+        if (false) {
+            document.write('if문 시작');
+        } else if(true) {
+            document.write('else if 첫번째');
+        } else if(true) {
+            document.write('else if 두번째');
+        } else {
+            document.write('else 문');
+        }
+        document.write('<hr>');
+        // 선택문 : switch case 스위치 케이스문
+        var key = 4;
+        switch (key) {
+            case 1:
+                document.write(key, '를 선택했습니다.');
+                break; //switch문 빠져나갑니다.(중지)
+            case 2:
+                document.write(key, '를 선택했습니다.');
+                break;
+            case 3:
+                document.write(key, '를 선택했습니다.');
+                break;
+            default:
+                document.write('선택된 키가 없습니다.');
+                break;
+        }
+        document.write('<hr>');
+        // 인터넷 자료교환 대량 데이터형식 : xml 태그 데이터 형식
+        // 지금은 json(Java script Dbject NOtation) 자바스크립트 객체 표시
+        var human = {
+            name:{
+                firstname:'장',
+                lastname:'효원'
+            },           //object
+            age:10,      //number
+            married:true //boolean
+        }
+        document.write(typeof(human));
+        document.write('<br>');
+        document.write(human['name']);
+        document.write('<br>');
+        document.write(human['name']['lastname']);
+        document.write('<br>');
+        document.write(human['age']);//값을 파싱할 때, 키로 값을 뽑아낸다.
+        document.write('<hr>');
+        // 복잡해 보이지만, key:value (고유키:값)
+        // 사용자데이터형 : object(array) 배열
+        // 참고) 기본형 데이터형 : number, string, boolean
+        var arrays = [10, 20, 30, 40];
+        document.write(typeof(arrays));
+        document.write('<br>');
+        document.write(arrays[2]);//배열index도 0부터 시작
+        document.write('<br>');
+        document.write(arrays.slice(1,4));//index 1 ~ 4미만
+        document.write('<br>');
+        document.write(arrays);//pop 하기 전 배열 값
+        document.write('<br>');
+        document.write(arrays.pop());//arrays에서 index순서가 제일 마지막인 자료를 뽑아냄.내용삭제
+        document.write('<br>');
+        document.write(arrays);//pop 한 배열 값
+        document.write('<br>');
+        document.write(arrays.push(1000));//arrays에 자료 입력, 배열갯수가 출력됨, index의 제일 마지막에 입력됨.
+        document.write('<br>');
+        document.write(arrays);
+        document.write('<br>');
+        document.write(arrays.join('!!'));//arrays에 자료 입력은x 출력할때만 보임.
+        document.write('<br>');
+        document.write(arrays);//join에서 들어간 자료가 없어짐.
+        document.write('<br>');
+        document.write(arrays.reverse());//sort는 오름차순 reverse내림차순
+        document.write('<br>');
+        document.write(arrays.sort(function(a,b){return b-a}));
+        //sort함수로 내림차순 구하기
+        document.write('<br>');
+        document.write(arrays.sort(function(a,b){return a-b}));
+        //sort함수로 오름차순 구하기
+        document.write('<hr>');
+        // 날짜 처리 함수
+        var date = new Date; //new 키워드(예약어)로 함수형 변수 생성
+        var date2 = new Date;
+        document.write(date);//웹브라우저 PC의 시간
+        document.write('<br>');
+        document.write(date.getMonth()+1);//현재 월 0부터 시작해서 +1해야 함
+        document.write('<br>');
+        document.write(date.getDay());//현재 요일(일0,월1,화2,수3....)
+        document.write('<br>');
+        document.write(date.getDate());//현재 날짜
+        document.write('<br>');
+        document.write(date.getHours());//현재 시간
+        document.write('<hr>');
+        // 인터페이스는 함수명만 있고, 구현내용은 없는 데이터자료형
+        // 내장함수란?아래 사용자가 만든 더하기 plus함수가 아닌,웹 브라우저에 내장 함수 : 자바스크립트는 웹 브라우저에 내장된 언어, 내장함수들을 내장함수라고 함.
+        var txt = 'hyowon is Javascript';
+        var num = 10;
+        document.write(txt.length);//문자열의 길이 리턴
+        document.write('<br>');
+        document.write(txt.indexOf('is'));//찾은 문자열의 index위치 리턴
+        document.write('<br>');
+        document.write(txt.slice(0,7));//(시작위치,끝위치)기준으로 문자열 슬라이스
+        //끝위치의 앞부분까지 나옴. == 끝위치 미만
+        document.write('<br>');
+        document.write(txt.replace('is', '는'));//('찾을문자','바꿀문자')
+        document.write('<br>');
+        document.write(txt.toUpperCase()); //대문자로 변경
+        document.write('<br>');
+        document.write(txt.toLowerCase()); //소문자로 변경
+        // 위 기능들을 '데이터를 파싱(Parsing)한다'고 함.
+        document.write('<br>');
+        document.write(num.toFixed(6));//숫자를 파싱, 소수점 이하를 6자리로
+        document.write('<br>');
+        document.write(num.toString()+num.toString());//숫자를 문자로 변경
+        document.write('<br>');
+        document.write(Math.PI);//원주율 3.14xxx
+        document.write('<br>최대값 구하기 ');
+        document.write(Math.max(10, 50, 20, 30));
+        document.write('<br>0~1사이 임의의 값 구하기*10 ');//*10으로 0~10사이의 임의 값.
+        //추첨로직에서 사용, 고유값 생성
+        document.write(Math.random()*10);
+        document.write('<hr>');
+        // 함수형 변수 사용
+        // 기본함수형태 : function 함수명(파라미터1, 파라미터2) {구현내용}
+        var plus = function(x,y) { 
+            //무명함수 = anonymous함수 = 콜백함수 = 자동실행함수
+            var z;
+            z = x + y;
+            return z;
+        }
+        document.write('plus라는 변수는 데이터타입이 : ', typeof(plus));
+        document.write('<br>');
+        function plus(x,y) {
+            var z;
+            z = x + y;
+            return z;
+        }
+        document.write(plus(5,2));
+        document.write('<hr>');
+        // 연산자3 : 논리 &&, ||, !(NOT)
+        var x, y;
+        x = true; y = false;
+        document.write(x&&y); //곱하기 1=true, 0=false = 1*0 = 0
+        document.write('<br>');
+        document.write(x||y); //더하기 1=true, 0=false = 1+0 = 1
+        document.write('<br>');
+        document.write(!y); //반대연산 !false = true
+        document.write('<hr>');
+        // 연산자2 : 비교 >, >=, <, <=, ==, === (>=,<=순서 중요)
         // 결과값(return)이 true | false
         // var는 변수를 선언하는 예약어(미리 등록된 용어)로, 예약어를 선언 할 수 없음.(var var; 안됨. var vars; 됨.)
         var x, y, z;
@@ -44,7 +266,7 @@
         document.write('<br>');
         document.write(x===z); //숫자 5와 문자5가 (형태가)다르다는 내용 false
         document.write('<hr>');
-        // 연산자 : 사칙연산
+        // 연산자1 : 사칙연산
         var x, y;
         x = 5; y = 2;
         document.write(x+y);
@@ -66,7 +288,7 @@
             사용자정의형 : object(array |배열형), funcion(함수-메소드형) 
         */
        var 변수1 = 100; // 변수는 한글로 사용하면 안됨.
-       document.write('변수타입은 : ', typeof(변수1));
+       document.write('변수타입은 : ', typeof(변수1)); //데이터 타입을 알려줌
        document.write(변수1+변수1);
        document.write('<br>'); // 줄바꿈 br : break return(중지하고 엔터)
        변수1 = '100'; // '문자', "문자열" JAVA에서는 이렇게 구분(JS 구분없음)

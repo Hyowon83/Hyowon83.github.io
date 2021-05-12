@@ -24,7 +24,7 @@
         // $('id선택자').click(콜백함수(){구현내용});
         $(document).ready(function(){
             //아래의 html문서를 다 읽은 후에 {블럭}내용이 실행된다.
-            $('#checkvalue').click(function () {
+            $('#checkValue').click(function(){
                 alert($('#name').val());
                 $('#one').css('background-color','red');
             });
@@ -45,8 +45,8 @@
     <p class="two">헬로 자바스크립트2</p>
     <input type="text" name="name" id="name" value="테스트">
     <!-- 입력값을 전송하는 버튼 -->
-    <button onclick="checkValue('💕💕')">입력값 확인</button>
-    <button id='ckeckvalue'>jQuery 입력값 확인</button>
+    <button onclick="checkValue('aaa')">입력값 확인</button>
+    <button id='checkValue'>jQuery 입력값 확인</button>
     <br>
     <script>
        
@@ -60,7 +60,7 @@
         document.write('클래스엘리먼트 내용 : ', twoClassName[0]['innerHTML']);
         function checkValue(params) {
             // alert(params + '버튼 클릭 되었습니다.');
-            alert(names.val() + '입력한 값입니다.');
+            alert(names.val() + " 가 입력한 값입니다.");
             // document.getElementById('one').style.backgroundColor = 'red';
             $('#one').css('background-color','red');
         }

@@ -17,18 +17,37 @@
         태그선택자 : h1, h2, p, div, header, article, footer 등등
         class선택자 : .class이름 (특징:중복사용 가능)
         id선택자 : #id이름 (특징:중복사용 불가능 |오동작 원인)
-        가상선택자 : ::after ::before, :before
+        가상선택자 : ::after ::before, :before, :after
         가상요소(Element-가상태그) : :hover (사용 예 = a:hover)
     */
-    * {
-
+    h1 { background-color: skyblue; }
+    div * {
+        color: rgb(93, 255, 101)
+    }
+    .box-one, .box-two { background-color: tomato;}
+    #box-four, #box-five { background-color: yellow;}
+    .box-one p:after { content:'   +addadd';}
+    .box-one p::before {content: 'add+  ';}
+    a:hover {color: white;}
+    /* 크기단위 font크기, img크기 단위종류 3가지 : ~px, ~em(배수), ~rem(root기반 배수) */
+    .box-one {
+        font-size: 8px;
+        /* font-size: 1.5em;  */
+        /* 웹브라우저 기본 폰트 사이즈 : 16px = 1em, 16*1.5px = 1.5em */
+        /* font-size: 1.5rem; */
+        }
+    .box-one p {
+        /* 웹브라우저 기본폰트인 16px의 1.5배 아니고, 부모요소의 1.5배 (8px의 1.5배) */
+        font-size: 1.5em;
+        font-size: 1.5rem;
+        /* 위에서부터 해석하는 방식 : 인터프리터형 = 자바스크립트 */
     }
 </style>
 </head>
 <body>
      <h1>헬로 CSS</h1>
-     <div class="box-one">one</div>
-     <div class="box-two">two</div>
+     <div class="box-one"><p>one</p></div>
+     <div class="box-two"><a href="#">two two two</a></div>
      <div class="box-three">three</div>
      <div id="box-four">four</div>
      <div id="box-five">five</div>

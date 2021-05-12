@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 실습</title>
+    <!-- 자바스크립트 : JS -> jQuery -> ES5~7(엑마스크립트) -->
+    <style>
+        table, tr, td, th {
+            border: 1px solid black;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th{width: 25%;}
+    </style>
+</head>
+<body>
+    <table id="board">
+        <tr>
+            <th>id</th>
+            <th>age</th>
+            <th>eyeColor</th>
+            <th>name</th>
+            <tbody></tbody>
+        </tr>
+    </table>
+    <div id="one">헬로 자바스크립트</div>
+    <script>
+        // 연산자 : 비교 >, >=, <, <=, ==, === (>=,<=순서 중요)
+        // 결과값(return)이 true | false
+        // var는 변수를 선언하는 예약어(미리 등록된 용어)로, 예약어를 선언 할 수 없음.(var var; 안됨. var vars; 됨.)
+        var x, y, z;
+        x = 5; y = 2; z = '5';
+        document.write(x>y);
+        document.write('<br>');
+        document.write(x>=y);
+        document.write('<br>');
+        document.write(x<y);
+        document.write('<br>');
+        document.write(x<=y);
+        document.write('<br>');
+        document.write(x==z); //숫자 5와 문자 5가 같다는 내용 true
+        document.write('<br>');
+        document.write(x===z); //숫자 5와 문자5가 (형태가)다르다는 내용 false
+        document.write('<hr>');
+        // 연산자 : 사칙연산
+        var x, y;
+        x = 5; y = 2;
+        document.write(x+y);
+        document.write('<br>');
+        document.write(x-y);
+        document.write('<br>');
+        document.write(x*y);//곱하기
+        document.write('<br>');
+        document.write(x**y);//제곱
+        document.write('<br>');
+        document.write(x/y);//나누기
+        document.write('<br>');
+        document.write(x%y);//나머지값
+        document.write('<hr>');//수평선태그 horizontal
+        // document 객체 안에 (변수, 함수, 배열 |멤버변수), 객체를 가져다가 사용할 때 .(직접접근)을 찍어서 사용.
+        // 변수(variable 요소(number수, string문자, object객체)) 사용에 대해
+        /* 데이터를 사용하는 방법 : 변수가 사용 
+            기본형 : number(수: 정수, 실수=소수점), string(문자열), boolean(참true, 거짓false) 
+            사용자정의형 : object(array |배열형), funcion(함수-메소드형) 
+        */
+       var 변수1 = 100; // 변수는 한글로 사용하면 안됨.
+       document.write('변수타입은 : ', typeof(변수1));
+       document.write(변수1+변수1);
+       document.write('<br>'); // 줄바꿈 br : break return(중지하고 엔터)
+       변수1 = '100'; // '문자', "문자열" JAVA에서는 이렇게 구분(JS 구분없음)
+       document.write('변수타입은 : ', typeof(변수1));
+       document.write(변수1+변수1);
+       document.write('<br>');
+       var name = 'hyowon';
+       document.write(name[2]);//배열은 위치정보=인덱스값을 가지고 값을 제어
+       //인덱스index=색인(책끝에 가나다 인덱스와 같은 역할)
+       //모든 언어의 배열의 인덱스 시작은 0부터.(단, 베이직 언어는 1부터)
+
+       // 입력된 값에 따라서 변수 형이 결정된다.
+
+        /* 여러줄 주석
+         자바스크립트부터는 프로그램이기 때문에 디버그용어 사용(에러처리)
+         자바언어부터 개발되었고, 자바스크립트와는 관계 없음.
+         자바스크립트는 인터프리터(1줄씩 위에서부터 해석)언어=파이썬
+         자바는 컴파일언어(클래스단위로 해석)
+        */
+        // 한 줄 주석사용, 개체(태그)선택방법, 디버그방법
+        document.getElementById('one').innerHTML="헬로 <h1>javascript</h2>"; // 20년 전부터 이용하던 개체선택방법
+        document.getElementById('one').innerText="헬로 <h1>javascript</h2>"; // 따옴표 안 글자를 텍스트로 인식
+        var debug = document.getElementById('one');
+        // window.alert(debug.innerText); //디버그하는 방법1
+        console.log(debug.innerText); //디버그하는 방법2 json 빅데이터확인
+        // 예전 자바스크립트를 배우는 이유 :  IoT때문.
+        // IoT 임베디드 프로그램에서는 jQuery를 사용 못하는 경우가 있음.
+        // 위 경우 네이티브 자바스크립트(old)를 사용하게 된다.
+    </script>
+</body>
+</html>

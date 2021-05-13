@@ -1,3 +1,16 @@
+#### 작업예정 : jQuery 제이쿼리 JSON 데이터 파싱
+- 외부 data.js 파일에서 json 데이터를 저장한 후 html에서 불러와서 파싱.
+- 외부사이트에서 제공하는(Rest IP서버) json데이터를 html에서 불러와 파싱.
+- RestIP서버 중 코로나19 확진자 데이터를 받아서 html에 파싱(데이터를 분해해서 화면에 뿌려주는 작업.)
+- RestIP서버주소(빅데이터) : https://coroname.me/getdata
+
+#### 20210512(목) 작업내역
+- jQuery 코어 다운받기 : min버전(압축-속도UP), 일반버전(개발-속도nomal) =우리나라에선 별반 차이 없음.
+- jQuery 미처리 작업은 다음주에.
+- 오늘은 모바일 메인페이지 1개 만들어서 과제물로 제출 -> 스프링에서 프로그램 입히는 소스로 사용하게 된다.
+- 애니데스크(독일산) : 팀뷰어(독일산) 사용하는 대신에 애니데스크를 사용.
+- html5.html, css.html, js.html 여기까지
+
 #### 20210512(수) 작업내역
 - git clone 으로 프로젝트를 가져온 경우 아래 내용을 추가해야 함.
 - git config --list 확인해서 user.name, user.email 없으면 아래 추가.
@@ -5,6 +18,7 @@
 - git config --local user.name 영문이름
 - git config --local user.email 영문이메일
 - 프로젝트를 한 명이 제작하는 경우가 없기 때문에 여러명일 때 소스를 수정한 사람 확인용 정보입니다.
+- jQuery 기본구조만 실습했습니다.
 
 #### 20210511(화) 작업내역
 - 로렘 입숨 한글 : http://guny.kr/stuff/klorem/

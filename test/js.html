@@ -43,6 +43,7 @@
     </table>
     <div id="one">헬로 자바스크립트</div>
     <p class="two">헬로 자바스크립트2</p>
+    <!-- input태그에만 이름을 넣을 수 있다. p에는 class와 id만 -->
     <input type="text" name="name" id="name" value="테스트">
     <!-- 입력값을 전송하는 버튼 -->
     <button onclick="checkValue('aaa')">입력값 확인</button>
@@ -53,7 +54,7 @@
         // 여러개의 element 선택
         // var names = document.getElementById('name');
         var names = $('#name');
-        var inputName = document.getElementsByName('name');
+        var inputName = document.getElementsByName('name'); //input태그 이름
         var twoClassName = document.getElementsByClassName('two');
         // 네이밍 방식 : 카멜(낙타등)표기법. 단어와 단어를 합칠 때, 소문자로 시작해서 단어가 분리 될 때 대문자로 시작.
         console.log(twoClassName);

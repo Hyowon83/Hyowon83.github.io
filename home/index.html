@@ -15,25 +15,94 @@
 <link rel="stylesheet" href="/home/css/mobile.css">
 <style>
 /* 모바일용 메인 페이지 스타일 지정(아래) */
-/* 로고영역 */
-.header_area h1 {
-    float: none;
-    width: 100%;
-    height: 50px;
+/* 본문컨테이너영역 */
+#container, footer, .hdd, .quick_area {
     text-align: center;
-    padding: 3px 0px 0px; /* 상하 좌 우 */ /* 상 우 하 좌 */ /* 상하 좌우 */
 }
-.header_area h1 a {
-    /* 로고는 이미지인데 글을 더한 이유는 웹 접근성 때문(스크린리더: 시각장애인용 유틸리티) */
+#container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 30px;
+}
+
+/* 슬라이드영역 */
+.main_rolling_pc {
+    display: block;
+}
+.visualRoll {
+    position: relative;
+    width: 100%;
+}
+.viewImgList {
+    position: relative;
+    width: 100%;
+}
+ul.viewImgList li {
+    /* ul.클래스명: ul태그 중 클래스명이 viewImagList 영역 */
+    text-align: center;
+    height: 300px;
+    line-height: 550px;
+    background-size: cover; /* center: 배경 이미지의 크기를 꽉 채우는 값 */
+    width: 100%;
+}
+.roll_content a img {
+    display: none;
+}
+li.imglist0 {
+    position: relative;
+    z-index: 50;
+    background: url(./img/slide1.jpg) no-repeat;
+}
+li.imglist1 {
+    position: absolute;
+    z-index: 10;
+    left: 0; top: 0;
+    background: url(./img/slide1.jpg) no-repeat;
+}
+li.imglist2 {
+    position: absolute;
+    z-index: 10;
+    left: 0; top: 0;
+    background: url(./img/slide1.jpg) no-repeat;
+}
+.roll_content {
+    position: static;
+}
+.roll_content .roll_txtline {
+    position: absolute;
+    left: 0;
+    bottom: 60px; /* roll_content하단에서 60px 위에 위치 */
+    width: 100%;
+    line-height: 1;
+    text-align: center;
+    font-size: 22px;
+    color: #fff;
+    letter-spacing: 2px;
+}
+.rollbtnArea {
+    position:absolute;/* 위치를 기준위치에 고정 */
+    width: 100%;
+    left: 0;
+    bottom: 25px;
+    z-index: 200;
+}
+.rollingbtn {
+    width: 320px;
+    margin: 0 auto; /* 버튼영역에 5개 들어가고, 가운데 정렬 시킴 */
+    text-align: center;
+}
+.rollingbtn li.butt0 {
+    margin-left: 10px;
+}
+.rollingbtn li {
     display: inline-block;
-    width: 150px;
-    height: 80px;
-    background: url(./img/logo.png); /* css3는 함수를 지원한다. */
-    background-size: 50px 60px !important; /* 백그라운드 이미지 사이즈. 가로 세로 */
-    background-position: center center !important; /* 이미지 위치 가운데 정렬. 가로 세로 */
-    text-indent: -9999px; /* 들여쓰기. 이미지만 보이고 글자는 숨기기 위해. */
+    margin-left: 5px;
 }
-/* //로고영역 */
+.rollingbtn li a {
+    vertical-align: top; /* img하고 다른 태그 사용시 다른 태그의 세로 정렬 */
+}
+/* //슬라이드영역 */
+/* //본문컨테이너영역 */
 </style>
 <script>
 $(document).ready(function() {
@@ -52,7 +121,12 @@ $(document).ready(function() {
 			<!-- //상단로고영역 -->
 			
 			<!-- 상단메뉴메뉴영역 -->
-			<p class="openMOgnb"><a href="#"><b class="hdd">메뉴열기</b> <span></span><span></span><span></span></a></p>
+			<p class="openMOgnb">
+                <a href="#">
+                    <b class="hdd">메뉴열기</b> 
+                    <span></span><span></span><span></span>
+                </a>
+            </p>
 			<div class="header_cont">
 				<ul class="util clear">
 					<li><a href="login.html">로그인</a></li>
@@ -122,11 +196,11 @@ $(document).ready(function() {
                 <!-- 슬라이드버튼영역 -->
                 <div class="rollbtnArea">
                     <ul class="rollingbtn">
-                        <li class="seq butt0"><a href="#butt"><img src="img/btn_rollbutt_on.png" alt="1번" /></a></li>
-                        <li class="seq butt1"><a href="#butt"><img src="img/btn_rollbutt_off.png" alt="2번" /></a></li>
-                        <li class="seq butt2"><a href="#butt"><img src="img/btn_rollbutt_off.png" alt="3번" /></a></li>
-                        <li class="rollstop"><a href="#" class="stop"><img src="img/btn_roll_stop.png" alt="멈춤" /></a></li>
-                        <li class="rollplay"><a href="#" class="play"><img src="img/btn_roll_play.png" alt="재생" /></a></li>
+                        <li class="seq butt0"><a href="#butt"><img src="./img/btn_rollbutt_on.png" alt="1번" /></a></li>
+                        <li class="seq butt1"><a href="#butt"><img src="./img/btn_rollbutt_off.png" alt="2번" /></a></li>
+                        <li class="seq butt2"><a href="#butt"><img src="./img/btn_rollbutt_off.png" alt="3번" /></a></li>
+                        <li class="rollstop"><a href="#" class="stop"><img src="./img/btn_roll_stop.png" alt="멈춤" /></a></li>
+                        <li class="rollplay"><a href="#" class="play"><img src="./img/btn_roll_play.png" alt="재생" /></a></li>
                     </ul>
                 </div>
                 <!-- //슬라이드버튼영역 -->

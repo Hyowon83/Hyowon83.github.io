@@ -5,6 +5,10 @@
 - RestIP서버주소(빅데이터) : https://coroname.me/getdata
 
 #### 20210512(목) 작업내역
+- 픽사베이에서 받은 이미지 3개 : 로고1, 슬라이드 이미지1, No Image1 받고, 경로 적어놓기.
+- 로고 : https://pixabay.com/ko/photos/%EA%B0%9C%EC%9A%94-%EC%95%84%ED%8A%B8-%EC%98%88%EC%88%A0-%EC%98%88%EC%88%A0-%EC%9E%91%ED%92%88-2675672/
+- 슬라이드 이미지 : https://pixabay.com/ko/photos/%EA%B3%A0%EC%96%91%EC%9D%B4-%EA%B3%A0%EC%96%91%EC%9D%B4-%EC%83%88%EB%81%BC-2307736/
+- No Image : https://pixabay.com/ko/vectors/%EB%B9%BC%EA%B8%B0-%EC%A0%9C%EA%B1%B0-%EC%82%AD%EC%A0%9C-%EC%B7%A8%EC%86%8C-38749/
 - 작업폴더를 나누는 이유 : 시청(관공서), 대학, 기업의 웹프로그램(사이트) 제작 할 때 1년간 무상 유지보수 이후 2천, 리뉴얼 4천 비용이 책정.
 - home폴더 기존작업을, 리뉴얼 home에 덮어쓰는 방식이 아니고, 리뉴얼 할 때 home2022라는 폴더에 작업을 하게 된다.
 - jQuery 코어 다운받기 : min버전(압축-속도UP), 일반버전(개발-속도nomal) =우리나라에선 별반 차이 없음.

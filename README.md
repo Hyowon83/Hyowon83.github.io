@@ -3,9 +3,9 @@
 
 #### 20210517(월) 작업내역
 - 외부 data.js 파일에서 json 데이터를 저장한 후 html에서 불러와서 파싱.
-- 외부사이트에서 제공하는(Rest IP서버) json데이터를 html에서 불러와 파싱.
-- RestIP서버 중 코로나19 확진자 데이터를 받아서 html에 파싱(데이터를 분해해서 화면에 뿌려주는 작업.)
-- RestIP서버주소(빅데이터) : https://coroname.me/getdata
+- 외부사이트에서 제공하는(Rest API서버) json데이터를 html에서 불러와 파싱.
+- RestAPI서버 중 코로나19 확진자 데이터를 받아서 html에 파싱(데이터를 분해해서 화면에 뿌려주는 작업.)
+- RestAPI서버주소(빅데이터) : https://coroname.me/getdata
 - 수업시작전, jsonData 파싱부분에서 append 사용에 2번 반복되는 부분 확인OK.
 
 - 메인페이지에 자바스크립트(jQuery) 적용.(VS code+HTML+CSS+jQuerty)

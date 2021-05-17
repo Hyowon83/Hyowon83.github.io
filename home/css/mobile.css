@@ -210,7 +210,7 @@ header { /* 태그선택자 */
     width: 100%;
 }
 .viewImgList {
-    position: relative;
+    position: relative; 
     width: 100%;
 }
 ul.viewImgList li {
@@ -224,7 +224,7 @@ ul.viewImgList li {
 .roll_content a img {
     display: none;
 }
-li.imglist0 {
+li.imglist0 { /* 기준위치 */
     position: relative;
     z-index: 50;
     background: url(../img/slide1.jpg) no-repeat;

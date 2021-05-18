@@ -187,8 +187,36 @@
 		padding-left: 14px;
 		background: url(../img/ico_bullet.png) no-repeat 0 50%;
 		overflow: hidden;
-		text-overflow: ellipsis; /* 문자열이 영역을 벗어나서 숨겨진곳을 ....처리 */
-		white-space: nowrap; /* 줄바꿀때 단어를 기준으로 하지 않음 */ 
+		text-overflow: ellipsis; /* 문자열이 영역을 벗어나서 숨겨진곳을 아예 없애지 않고 ...처리 */
+		white-space: nowrap; /* 문자를 자를때 단어를 기준으로 하지 않음(wrapping하지 않음) */ 
 	}
 	/* //전화상담과 최근공지사항 */
+
+
+    /* 푸터영역 */
+	footer {
+		padding: inherit;
+	}
+	.foot_area {
+		padding-left: 20px;
+		padding-bottom: 0;
+	}
+	.addr {
+		font-size: 13px;
+		line-height: 1.4;
+	}
+	.br_line {
+		display: inherit; /* 모바일에서 적용했던 스타일을 해제하겠다는 의미 */
+	}
+	.snslink {
+		position: absolute; /* 현재태그를 고정으로 */
+		right: 20px;
+		top: 20px;
+		width: auto;
+		margin: inherit;
+	}
+	.snslink li {
+		margin-left: 15px;
+	}
+	/* //푸터영역 */
 }

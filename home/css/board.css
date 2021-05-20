@@ -7,7 +7,7 @@
 /* 메인상단위치표시 영역 */
 .location_area {
     height: 260px;
-    background: rgb(31, 43, 65);
+    background: rgb(126, 146, 185);
 }
 .tit_page {
     padding: 140px 0 0 0;
@@ -156,7 +156,7 @@ input::placeholder {
     width: 100%;
     height: 50px;
     line-height: 50px;
-    background: #384d75;
+    background: #283244;
     font-size: 20px;
     font-weight: bold;
     color: #fff !important;
@@ -200,5 +200,70 @@ input::placeholder {
     white-space: inherit;
     display: inherit;
     width: inherit;
+    }
+}
+
+/* 게시판글보기 영역 */
+.bbsview_list {
+    padding-bottom: 30px;
+    border-top: 2px solid #384d75;
+    text-align: left;
+}
+.bbsview_list li {
+    box-sizing: border-box;
+    padding: 0 15px;
+    border-bottom: 1px solid #ccc;
+    color: #666;
+    font-size: 14px;
+    line-height: 20px;
+}
+.bbsview_list .bbs_title {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    height: 50px;
+    line-height: 50px;
+    font-weight: bold;
+    font-size: 16px;
+}
+.bbsview_list .bbs_hit {
+    overflow: hidden;
+    height: 40px;
+    line-height: 40px;
+    float: left;
+    width: 50%;
+}
+.bbsview_list .bbs_date {
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    width: 50%;
+}
+.bbs_content {
+    clear: both; /* float:left,right 기능을 해제합니다. */
+    min-height: 200px; /* 최소높이, 내용이 있든없든 최소높이를 200px로 하지만, 내용이 많으면 200이상으로 자리를 차지할수도 있다. */
+    padding: 20px 15px !important;
+}
+.btn_bbs {
+    margin-bottom: 5px;
+    display: inline-block;
+    width: 100%;
+    height: 35px;
+    font-size: 14px;
+    line-height: 35px;
+    background: #384d75;
+    color: #fff !important;
+    text-align: center;
+}
+/* //게시판글보기 영역 */
+
+/* 태블릿용 메인 페이지 스타일 지정(아래) 801px~1065px(pc.css에서 정의된부분까지, 정의하지 않으면 무한대) */
+@media all and (min-width: 801px) {
+    /* 뷰페이지버튼 스타일 */
+    .btn_bbs {
+        width: 70px;
+        float: none;
+        text-align: center;
     }
 }

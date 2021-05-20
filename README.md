@@ -3,10 +3,31 @@
 - 피곤할때 자바 | 스프링(이클립스-egov전자정부 프레임워크개발환경) 실습진행
 - 피곤할때 오라클DB(SQL디벨로퍼개발환경) Ansi-SQL(표준SQL) 기본언어실습진행 : CRUD
 - 두달째부터는 주로 스프링 실습 진행(납품용-이력서, 포트폴리오 등)
+- egov: 자바기반 -> JDK(Java Development Kit 자바개발환경) 설치확인.
+- JDK 실행경로 추가.
+- java -version (git --version)
+- 자바 오라클 자바는 8버전부터 유료. 이슈때문에 오픈 JDK로 회사에서는 변경.
+- 그래서 오라클자바 8~11버전 지우고 오픈 JDK로 변경 후 이클립스를 사용할 예정.
+- OPEN JDK 8버전(egov와 100%호환됨.) 사용.
+- 톰캣: 이클립스에서 웹프로그램 결과를 확인하는 라이브서버.(localhost:8080) 
+- 라이브서버(아파치): VS code에서 HTML 결과를 확인하는 라이브서버.(localhost:5500)
+- JRE: java Runtime Environment(자바실행환경) 자바앱을 실행할때만 사용
+- JDK: 개발하고 실행할때
+- 점심후 웹 프로젝트1개(Hello, world)생성-play-지우기
+- 스프링프로젝트1개(Hello, JAVA)-test폴더에서 자바기초를 실습
+- 자바에 익숙해진 후, 위 스프링프로젝트를 이용해서 Vs code에서 만든 UI를 JSP로 변경 한 후 스프링웹프로젝트를 진행.
+
+#### 20210521(금) 작업예정
+- 반응형 게시판페이지(CRUD) CSS 스타일처리: Create(Update) = board_write.html
+- 반응형 서브페이지들: 로그인, 회원가입, 마이페이지
+- 피곤할때 이클립스 프로젝트(헬로월드) 실습.
 
 #### 20210520(목) 작업내역
 - 메인페이지에서 시간이 걸리는 부분(프론트엔드) : 메뉴처리, 슬라이드 처리 OK
-- 모바일 게시판페이지(CRUD) CSS 스타일처리
+- 모바일 게시판페이지(CRUD) CSS 스타일처리: Read(list,view 페이지) OK
+- Read 리스트형식(다중Map): board)list.html 예, 회원리스트(회원목록)
+- Read 단일Map형식 (key1:value1,key2:value2,key3:value3...): board_view.html(회원상세보기) 
+- 상세보기 페이지의 댓글디자인은 부트스트랩 디자인시(관리자단 작업시) 추가예정.
 - 카멜표기법(낙타등표기법 예, .bbsListTbl), _표기법(예, .bbs_title)
 - href헤르프: hypertext referance (하이퍼(웹)문서 참조)
 - 정적(static)컨텐츠: html, css, javascript

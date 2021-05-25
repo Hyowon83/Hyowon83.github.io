@@ -204,8 +204,12 @@ $(document).ready(function() {
           <div class="timeline">
             <!-- timeline time label -->
             <div class="time-label">
-              <span class="bg-red">댓글리스트[<span>1</span>]</span>
+              <span class="bg-red" data-toggle="collapse" href="#collapseReply" role="button" id="btn_reply_list">
+                댓글리스트[<span>1</span>]
+              </span>
             </div>
+            <!-- 콜랩스 시작 -->
+            <div class="collapse timeline" id="collapseReply">
             <!-- time-label 이후 .after(html) 추가 -->
             <!-- /.timeline-label -->
             <!-- timeline item -->
@@ -227,9 +231,50 @@ $(document).ready(function() {
             </div>
             {{/each}}
             </script>
-            <!-- END timeline item -->
+            
+      <!-- 페이징처리 -->
+      <div class='row'>
+        <ul class="pagination" style="margin: 0 auto;">
+          <!-- <li class="paginate_button page-item previous disabled" id="example2_previous">
+            <a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0" 
+            class="page-link">Previous</a>
+          </li>
+          <li class="paginate_button page-item active">
+            <a href="#" aria-controls="example2" data-dt-idx="1" tabindex="0" 
+            class="page-link">1</a>
+          </li>
+          <li class="paginate_button page-item ">
+            <a href="#" aria-controls="example2" data-dt-idx="2" tabindex="0" 
+            class="page-link">2</a>
+          </li>
+          <li class="paginate_button page-item ">
+            <a href="#" aria-controls="example2" data-dt-idx="3" tabindex="0" 
+            class="page-link">3</a>
+          </li>
+          <li class="paginate_button page-item ">
+            <a href="#" aria-controls="example2" data-dt-idx="4" tabindex="0" 
+            class="page-link">4</a>
+          </li>
+          <li class="paginate_button page-item ">
+            <a href="#" aria-controls="example2" data-dt-idx="5" tabindex="0" 
+            class="page-link">5</a>
+          </li>
+          <li class="paginate_button page-item ">
+            <a href="#" aria-controls="example2" data-dt-idx="6" tabindex="0" 
+            class="page-link">6</a>
+          </li>
+          <li class="paginate_button page-item next" id="example2_next">
+            <a href="#" aria-controls="example2" data-dt-idx="7" tabindex="0" 
+            class="page-link">Next</a>
+          </li> -->
+        </ul>
+      </div>
+      <!-- //페이징처리 -->
+            </div>
+            <!-- //콜랩스 끝 -->
           </div>
-        </div>
+          <!-- //타임라인 끝 -->
+      </div>
         <!-- /.col -->
     </div>
     <!-- //댓글영역 -->
@@ -295,15 +340,38 @@ $(document).ready(function() {
   <!-- /.modal -->
 
   <script>
+    // 페이징처리 함수형 변수
+    var printPagingList = function(pageVO, target) {
+      $(target).html(''); //target의 내용만 지우고 target은 남아있음.
+      // pageVO = 스프링에서 받은 json데이터 변수3개: pageVO.prev(이전데이터가 있다면 true), pageVO.next(다음데이터가 있다면 true), pageVO-5페이지로 가정
+      var pagination = '';
+      pagination += '<li class="paginate_button page-item previous disabled" id="example2_previous">';
+      pagination += '<a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0"     class="page-link">Previous</a>';
+      pagination += '</li>'; // pagination = pagination + '</li>';  //여기까지 previous
+      var active = '';
+      for(var i=0; i<pageVO; i++) {
+        if(i==0) { active = 'active'; } else { active = ''; }
+        pagination += '<li class="paginate_button page-item '+active+'">';
+        pagination += '<a href="#" aria-controls="example2" data-dt-idx="6" tabindex="0"            class="page-link">'+(i+1)+'</a>';
+        pagination += '</li>';
+      }
+
+      // next 출력(아래)
+      pagination += '<li class="paginate_button page-item next" id="example2_next">';
+      pagination += '<a href="#" aria-controls="example2" data-dt-idx="7" tabindex="0"            class="page-link">Next</a>';
+      pagination += '</li>';
+      $(target).append(pagination);
+    };
+    
+    // 템플릿방식 댓글리스트처리 함수형 변수(아래)
     var printReplyList = function(data, templateData, target) {
         var template = Handlebars.compile(templateData.html()); // template을 html태그로 변환.
         var html = template(data); // 파싱처리.
-        $('.div_template').remove(); // 기존 댓글데이터 누적을 방지
-        target.after(html);
+        $('.div_template').remove(); // 기존 댓글데이터 누적을 방지 //target 안쪽의 자식을 지움
+        target.prepend(html);
     };
       $(document).ready(function(){
-          $('#btn_reply_write').click(function(){
-            //alert('댓글등록버튼');
+          $('#btn_reply_list').click(function(){
             $.ajax({
                 method:'get',
                 url:'./board_view.html', //restAPI url이 들어가야함
@@ -318,7 +386,33 @@ $(document).ready(function() {
                     // 위 result데이터를 #template에 바인딩시키는 함수(아래)
                     // 함수의 (인자 = 아규먼트 = 매개변수 = 파라미터)
                     // printReplyList(jsonData. 바인딩(파싱)위치, 화면출력위치);
-                    printReplyList(result, $('#template'), $('.time-label'));
+                    printReplyList(result, $('#template'), $('#collapseReply'));
+                    printPagingList(5,'.pagination');
+                },
+                error:function () {
+                    alert('restAPI서버가 작동하지 않습니다.')
+                }
+            });
+          });
+          $('#btn_reply_write').click(function(){
+            //alert('댓글등록버튼');
+            $.ajax({
+                method:'get',
+                url:'./board_view.html', //restAPI url이 들어가야함
+                dataType:'text',
+                success:function (result) {
+                    // alert('댓글등록성공');
+                    result=[
+                        {rno:3,bno:2,reply_text:'세번째 댓글입니다.',replyer:'관리자',reg_date:1601234512345},
+                        {rno:2,bno:2,reply_text:'두번째 댓글입니다.',replyer:'관리자',reg_date:1601234512345},
+                        {rno:1,bno:2,reply_text:'첫번째 댓글입니다.',replyer:'관리자',reg_date:1601234512345}
+                    ];
+                    // 자바스크립트는 함수기반 구조화된 언어
+                    // 위 result데이터를 #template에 바인딩시키는 함수(아래)
+                    // 함수의 (인자 = 아규먼트 = 매개변수 = 파라미터)
+                    // printReplyList(jsonData. 바인딩(파싱)위치, 화면출력위치);
+                    printReplyList(result, $('#template'), $('#collapseReply'));
+                    printPagingList(6,'.pagination');
                 },
                 error:function () {
                     alert('restAPI서버가 작동하지 않습니다.')

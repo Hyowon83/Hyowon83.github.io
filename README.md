@@ -3,22 +3,22 @@
 - 피곤할때 자바 | 스프링(이클립스-egov전자정부 프레임워크개발환경) 실습진행
 - 피곤할때 오라클DB(SQL디벨로퍼개발환경) Ansi-SQL(표준SQL) 기본언어실습진행 : CRUD
 - 두달째부터는 주로 스프링 실습 진행(납품용-이력서, 포트폴리오 등)
-- egov: 자바기반 -> JDK(Java Development Kit 자바개발환경) 설치확인.
-- JDK 실행경로 추가.
-- java -version (git --version)
-- 자바 오라클 자바는 8버전부터 유료. 이슈때문에 오픈 JDK로 회사에서는 변경.
-- 그래서 오라클자바 8~11버전 지우고 오픈 JDK로 변경 후 이클립스를 사용할 예정.
-- OPEN JDK 8버전(egov와 100%호환됨.) 사용.
-- 톰캣: 이클립스에서 웹프로그램 결과를 확인하는 라이브서버.(localhost:8080) 
-- 라이브서버(아파치): VS code에서 HTML 결과를 확인하는 라이브서버.(localhost:5500)
 - JRE: java Runtime Environment(자바실행환경) 자바앱을 실행할때만 사용
 - JDK: 개발하고 실행할때
-- 점심후 웹 프로젝트1개(Hello, world)생성-play-지우기
-- 스프링프로젝트1개(Hello, JAVA)-test폴더에서 자바기초를 실습
 - 자바에 익숙해진 후, 위 스프링프로젝트를 이용해서 Vs code에서 만든 UI를 JSP로 변경 한 후 스프링웹프로젝트를 진행.
+- 관리자단 AdminLTE적용 - 스프링할때(회원관리CRUD-jsp,게시판생성관리CRUD)
 
-#### 20210526(목) 작업예정
-- 관리자단 AdminLTE적용.(회원관리자CRUD, 게시판CRUD, 대시보드)
+#### 20210528(금) 작업예정
+- 관리자단 admin/board_write.html, board_view.html
+- 대시보드 home.html(최근 회원가입정보, 최근 게시물정보)
+- 이클립스로 작업한 html내용을 -> resources 폴더(admin, home, root파일까지)로 배치
+- 스프링 작업의 시작.
+
+#### 20210527(목) 작업내역
+- admin/board_list.html 작업OK
+- 관리자단 AdminLTE적용 - UI구현할때(게시판CRUD, 대시보드)
+- 관리자단 기본 틀(템플릿): 공통UI부분 작업OK.
+- Ctrl + 0 완전 축소/Ctrl + K,0 코드 구조 축소 <-> Ctrl + K,J 모든 코드 펼치기
 
 #### 20210526(수) 작업내역
 - 검색엔진에 최적화 됐다는 것: 의미있는 태그를 사용했는가? <header>, <section>, <footer>, <artisle> 태그처럼 HTML5부터 만들어진 태그를 사용하면 구글검색에 잘 노출 됨.

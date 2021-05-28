@@ -9,7 +9,11 @@
 - 관리자단 AdminLTE적용 - 스프링할때(회원관리CRUD-jsp,게시판생성관리CRUD)
 
 #### 20210528(금) 작업예정
-- 관리자단 admin/board_write.html, board_view.html
+- 데이터를 전송할때 사용하는 문장(QueryString쿼리스트링)의 시작은 물음표(?): ?키=value&키=value
+- 뒤로가기를 허용하면 게시물 테러가 가능.
+- 뒤로가기를 허용하지 않게 페이지를 이동하는 방식(js에서는 location.replace함수 사용)
+- 뒤로가기를 허용하는 함수(Js에서는 location.herf=''사용)
+- 관리자단 admin/board_write.html, board_view.html(댓글 ajax처리)
 - 대시보드 home.html(최근 회원가입정보, 최근 게시물정보)
 - 이클립스로 작업한 html내용을 -> resources 폴더(admin, home, root파일까지)로 배치
 - 스프링 작업의 시작.

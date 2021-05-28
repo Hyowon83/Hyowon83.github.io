@@ -202,6 +202,42 @@
             </div>
           </form>
         </div>
+        <!-- 댓글입력폼 -->
+        <div class="col-md-12">
+          <div class="card-default">
+              <div class="card-header">
+                <h3 class="card-title">댓글 쓰기</h3>
+              </div>
+              <div class="card-body p-0">
+                <div class="bs-stepper linear">
+                  <div class="bs-stepper-header" role="tablist">
+                    <div class="line"></div>
+                  </div>
+                  <div class="bs-stepper-content">
+                    <!-- your steps content here -->
+                    <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
+                      <div class="form-group">
+                        <label for="writer">작성자</label>
+                        <input type="text" class="form-control" id="writer" placeholder="작성자를 입력하세요.">
+                      </div>
+                      <div class="form-group">
+                        <label for="reply_text">댓글내용</label>
+                        <input type="text" class="form-control" id="reply_text" placeholder="댓글 내용을 입력하세요.">
+                      </div>
+                    </div>
+                    <div id="information-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
+                      <button type="button" class="btn btn-warning" id="btn_reply_write">댓글등록</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                  아래 댓글리스트 버튼을 클릭하시면 댓글 목록이 출력됩니다.
+              </div>
+            </div>
+        </div>
+        <!-- //댓글입력폼 -->
         <!-- 댓글 타임라인 -->
         <div class="col-md-12">
           <!-- The time line -->
@@ -327,10 +363,74 @@
 <!-- AdminLTE for demo purposes 오른쪽메뉴-로그아웃사용- 코어
 <script src="dist/js/demo.js"></script> -->
 <script>
-  // 댓글리스트 버튼 클릭액션으로 댓글리스트를 출력
+ var printReplyList = function(data, templateData, target) {
+   //result라는 json데이터를 templateData에 파싱(아래)
+   var template = Handlebars.compile(templateData.html()); // template을 html태그로 변환.
+        var html = template(data); // 파싱처리.
+        $('.div_template').remove(); // 기존 댓글데이터 누적을 방지 //target 안쪽의 자식을 지움
+        target.prepend(html);
+ };
+ var printPagingList = function(pageVO, target) {
+   //스프링 restAPI서버에서 받은 pageVO를 target에 파싱(아래)
+   $(target).html(''); //target의 내용만 지우고 target은 남아있음.
+      // pageVO = 스프링에서 받은 json데이터 변수3개: pageVO.prev(이전데이터가 있다면 true), pageVO.next(다음데이터가 있다면 true), pageVO-5페이지로 가정
+      var pagination = '';
+      pagination += '<li class="paginate_button page-item previous disabled" id="example2_previous">';
+      pagination += '<a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0"     class="page-link">Previous</a>';
+      pagination += '</li>'; // pagination = pagination + '</li>';  //여기까지 previous
+      var active = '';
+      for(var i=0; i<pageVO; i++) {
+        if(i==0) { active = 'active'; } else { active = ''; }
+        pagination += '<li class="paginate_button page-item '+active+'">';
+        pagination += '<a href="#" aria-controls="example2" data-dt-idx="6" tabindex="0"            class="page-link">'+(i+1)+'</a>';
+        pagination += '</li>';
+      }
+       // next 출력(아래)
+       pagination += '<li class="paginate_button page-item next" id="example2_next">';
+      pagination += '<a href="#" aria-controls="example2" data-dt-idx="7" tabindex="0"            class="page-link">Next</a>';
+      pagination += '</li>';
+      $(target).append(pagination);
+ };
+  // 댓글리스트+댓글등록 버튼 클릭액션으로 댓글리스트를 출력
   $(document).ready(function(){
+    $('#btn_reply_write').click(function(){
+      $.ajax({
+        method:'get',
+        url:'board_view.html',
+        dataType:'text',
+        success:function(result) {
+          // alert('restAPI 성공');
+          result = [
+          {rno:3,bno:2,reply_text:'세번째 댓글입니다.',replyer:'관리자',reg_date:1601234512345},
+          {rno:2,bno:2,reply_text:'두번째 댓글입니다.',replyer:'관리자',reg_date:1601234512345},
+          {rno:1,bno:2,reply_text:'첫번째 댓글입니다.',replyer:'관리자',reg_date:1601234512345}
+          ];
+          printReplyList(result,$('#template'),$('#collapseReply'));
+          printPagingList(6,'.pagination');
+        },
+        error:function() {
+          alert('restAPI서버가 작동하지 않습니다.')
+        }
+      });
+    });
     $('#btn_reply_list').click(function(){
-      alert();
+      $.ajax({
+        method:'get',
+        url:'board_view.html',
+        dataType:'text',
+        success:function(result) {
+          // alert('restAPI 성공');
+          result = [
+          {rno:2,bno:2,reply_text:'두번째 댓글입니다.',replyer:'관리자',reg_date:1601234512345},
+          {rno:1,bno:2,reply_text:'첫번째 댓글입니다.',replyer:'관리자',reg_date:1601234512345}             
+          ];
+          printReplyList(result,$('#template'),$('#collapseReply'));
+          printPagingList(5,'.pagination');
+        },
+        error:function() {
+          alert('restAPI서버가 작동하지 않습니다.')
+        }
+      });
     });
   });
 </script>

@@ -80,6 +80,7 @@ function sqrt() {
     // } else {
     //     result.style.display = "block";
     // }
+    //그냥 켜지는 형태로만 바꿔도 됐었다.
 }
 function square() {
     removeZero()

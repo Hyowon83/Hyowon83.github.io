@@ -1,19 +1,15 @@
 
 function forclear() {
     document.getElementById("output").innerHTML = "0";
-    document.getElementById("output2").innerHTML = "0";
     document.getElementById("output2").style.display = "none";
 }
 function removeZero() {
     document.getElementById("output2").style.display = "none";
-
     var value = document.getElementById("output").innerHTML;
-    var value0 = document.getElementById("output2").innerHTML;
-    if (value == "0" && value == "0") {
+
+    if (value == "0") {
         value = " "
-        value0 = " "
         document.getElementById("output").innerHTML = value;
-        document.getElementById("output2").innerHTML = value0;
     }
 }
 function perc() {
@@ -29,7 +25,6 @@ function fordisplay(value) {
     document.getElementById("output2").style.display = "none";
     
     document.getElementById("output").innerHTML += value;
-    document.getElementById("output2").innerHTML += value;
 }
 function solve() {
     removeZero()
@@ -60,18 +55,38 @@ function oneclear() {
 //         document.getElementById("output").innerHTML = value;
 //     }
 // }
+// 한...두글자 지우기 준호오빠 버젼.
+// function oneclear() { // 한자리씩 delete
+//     var value = document.getElementById("output").innerHTML;
+//     var value = document.getElementById("output").innerHTML = value.slice(0,-1);
+//     document.getElementById("output").innerHTML = value.slice(0,-1);
+//     if (value == " " || value.length <= 2){
+//         document.getElementById("output").innerHTML = "0";
+//     }
+// }
+
 function sqrt() {
     removeZero()
+    document.getElementById("output2").style.display = "block";
     var value = document.getElementById("output").innerHTML;
 
     value1 = Math.sqrt(value)
     document.getElementById("output").innerHTML = value1;
     document.getElementById("output2").innerHTML = '√'+value;
 
-    var result = document.getElementById("output2");
-    if (result.style.display == "block") {
-        result.style.display = "none";
-    } else {
-        result.style.display = "block";
-    }
+    // var result = document.getElementById("output2");
+    // if (result.style.display == "block") {
+    //     result.style.display = "none";
+    // } else {
+    //     result.style.display = "block";
+    // }
+}
+function square() {
+    removeZero()
+    document.getElementById("output2").style.display = "block";
+    var value = document.getElementById("output").innerHTML;
+
+    value1 = value**2
+    document.getElementById("output").innerHTML = value1;
+    document.getElementById("output2").innerHTML = value+'²';
 }

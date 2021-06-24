@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str = '안녕하세요';
+
+        document.write('<p>str : '+str+'</p>');
+        document.write( '<p>str의 길이 : ' + str.length + '</p>' );
+        document.write( '<p>str.slice(0,-1) : ' + str.slice(0,-1) + '</p>' );
+        document.write( '<p>슬라이스 후 str의 길이 : ' + str.slice(0,-1).length + '</p>' );
+        document.write( '<p>str.substring(0,-1) : ' + str.substring(0,-1) + '=매개에 음수가 들어가서 결과값 안나옴</p>' );
+        document.write( '<p>str.substring(0,문자의길이-1) : ' + str.substring(0,str.length-1) + '</p>' );
+        document.write( '<p>서브스트링으로 자른 후 str의 길이 : ' + str.substring(0,str.length-1).length + '</p>' );
+        document.write( '<p>str.substring(0,0) : ' + str.substring + '</p>' );
+        document.write( '<p>서브스트링 설정만 한 str의 길이 : ' + str.substring.length + '</p>' );
+    
+    </script>
+</body>
+</html>
